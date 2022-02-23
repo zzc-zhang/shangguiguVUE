@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        
+        .yukua {
+            background-color: #e78a9cb2;
+        }
+        
+        .yukua1 {
+            background-color: #3fd68bb2;
+        }
+        
+        .yukua2 {
+            background-color: #9a71dbb2;
+        }
+        
+        .kangli {
+            font-size: 25px;
+            color: rgb(15, 56, 238);
+            background-color: cadetblue;
+        }
+        
+        .kangli2 {
+            text-align: center;
+            /* position: absolute;
+            top: -200px; */
+            /* margin-top: 50%; */
+            line-height: 200px;
+            border-radius: 10%;
+        }
+        
+        .kangli3 {
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="basic" :class="mood" @click="dianJi">{{name}}</div>
+        <br><br>
+        <div class="basic" :class="classArr">{{name}}</div><br><br>
+
+        <div class="basic" :class="classObj">{{name}}</div>
+        <button @click="ztbj">字体背景</button>
+        <button @click="yj">圆角</button>
+        <button @click="jc">加粗字体</button>
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 ：VUE在启动时生成生产提示
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷',
+                mood: 'yukuai2',
+                classArr: ['kangli', 'kangli2', 'kangli3'],
+                classObj: {
+                    kangli: 'q',
+                    kangli2: '',
+                    kangli3: ''
+
+                }
+            },
+
+            methods: {
+                dianJi() {
+                    // this.mood = 'yukuai'
+                    const arr = ['yukua', 'yukua1', 'yukua2']
+                        // 获取0到2的随机数，赋值给index
+                    const index = Math.floor(Math.random() * 3)
+                        // 获取上面的赋值
+                    this.mood = arr[index]
+                    console.log(index);
+
+                    console.log('我点击了');
+                    // 简写方法
+                    // this.mood = arr[Math.floor(Math.random() * 3)]
+                },
+                yj() {
+                    this.classObj.kangli = !this.classObj.kangli
+                },
+                ztbj() {
+                    this.classObj.kangli2 = !this.classObj.kangli2
+
+                },
+                jc() {
+                    this.classObj.kangli3 = !this.classObj.kangli3
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

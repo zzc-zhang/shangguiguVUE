@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../../js/vue.js"></script> -->
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        let Number = 18
+        let person = {
+            name: '张三',
+            sex: '男'
+        }
+        Object.defineProperty(person, 'age', {
+                get() {
+                    console.log('有人读取了age属性')
+                    return Number
+                },
+                set(value) {
+                    console.log('有人修改了age属性，且值是', value);
+                    Number = value
+                }
+            })
+            // 控制台输入  person   查看内容
+            // 输入   number = 99    修改number数据person.age  查看数据内容
+            // console.log(person);
+    </script>
+</body>
+
+</html>
